@@ -1,0 +1,17 @@
+services:
+    mysql:
+        image: mysql:latest
+        environment:
+            MYSQL_ROOT_PASSWORD: 123
+            MYSQL_DATABASE: iti_docker_lab2
+            MYSQL_USER: u_docker
+            MYSQL_PASSWORD: 123
+        ports:
+            - "3306:3306"
+
+    nginx:
+        image: nginx:latest
+        depends_on:
+            - mysql
+        ports:
+            - "8080:80"
